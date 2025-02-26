@@ -39,6 +39,12 @@ def main():
             drawable.draw(screen)
         for updatable in updatables:
             updatable.update(dt)
+
+        for asteroid in asteroids:
+            for shot in shots:
+                if shot.collide(asteroid):
+                    asteroid.kill()
+                    shot.kill()
         for asteroid in asteroids:
             if player.collide(asteroid):
                 print("Game over!")
